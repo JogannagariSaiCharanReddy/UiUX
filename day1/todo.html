@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>
+    <title>todo</title>
+    <style>
+        *{
+            background-color: rgb(186, 232, 255);
+        }
+        #todo-app{
+            gap:10px;
+            border: 1px solid black;
+            background-color: beige;
+            justify-items: center;
+            padding: 10px 10px 10px 10px;
+            margin: 10% 10% 10% 10%;
+            height: auto;
+            width: 70%;
+            border-radius: 5px;
+            
+        }
+        #add{
+            background-color: inherit;
+            display: flex;
+            gap:5px;
+            width: 100%;
+            height: 35px;
+            padding: 4px;
+
+            
+            
+        }
+
+        #get-todo{
+            align-items: center;
+            background-color: white ;
+            padding: 3px;
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+            
+        }
+
+
+        #tasks{
+            background-color: inherit;
+        }
+        #tasks li{
+            background-color: inherit;
+        }
+        
+        
+
+        
+        .todo_input {
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            height: 100%;
+            width:85%;
+            padding: 3px;
+        }
+        .todo_input input{
+            outline:none;
+            background-color: inherit;
+            height: 100%;
+            width:98%;
+            border :0;
+        }
+        .add_button{
+            height: inherit;
+            width: 15%;
+            border-radius: 5px;
+            background: black;
+            padding: 3px;
+
+        }
+        .add_button button{
+            color: white;
+            background-color: inherit;
+            border: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .add_button:hover{
+            transition: 0.2s;
+            background-color: white;
+        }
+        .add_button button:hover{
+            color: black;
+        }
+        
+        .task{
+            background-color: blue;
+            display: flex;
+
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div id="todo-app">
+         <div id="add">
+            <div class="todo_input">
+            <input type="text" placeholder="add something" id="add_task"/>
+        </div>
+        <div class="add_button">
+            <button onclick="add_todo()">Add</button>
+        </div> 
+        </div>
+        <br>
+         <div id="get-todo">
+            <ol id="tasks">
+                Today Tasks
+                <br>
+            </ol>
+         </div>
+    </div>
+</body>
+
+<script>
+    var tasks={};
+    var i=0;
+    function add_todo(){
+        var task=document.getElementById("add_task").value;
+        document.getElementById("add_task").value='';
+        if (task==='') return;
+            tasks.i=task;
+            var li = document.createElement("li");
+            var div=document.createElement("div");
+            var input=document.createElement("input");
+            input.type="checkbox";
+            div.classList="task";
+            var text = document.createTextNode(task);
+            div.appendChild(div.appendChild(li.appendChild(text)));
+            div.appendChild(div.appendChild(input));
+            document.getElementById("tasks").appendChild(div)
+        document.getElementById("tasks").appendChild(li);  
+    }
+
+    
+    
+</script>
+
+</html>
